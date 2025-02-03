@@ -18,7 +18,7 @@ model Profile {
   id String @id @default(uuid())
   userID String @unique
   firstName String
-  lasttName String
+  lastName String
   imageUrl String @db.Text
   email String @db.Text @unique
   
