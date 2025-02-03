@@ -9,7 +9,7 @@ export default function AppHeader() {
     <header className="border-b sticky">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <Hexagon className="h-10 w-10 text-yellow-500" />
+          <Hexagon className="h-10 w-10 text-amber-500" />
           <span className="font-bold text-xl">Exam Hive</span>
         </Link>
         <nav className="flex items-center ">
