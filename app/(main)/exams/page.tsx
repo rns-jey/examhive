@@ -1,6 +1,7 @@
 import { Button } from "@/components/atoms/button";
 import Wrapper from "@/components/organisms/wrapper";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
 import React from "react";
 
 const otherExams = [
@@ -78,7 +79,7 @@ export default function Exams() {
                 </CardHeader>
                 <CardFooter>
                   <Button variant={"outline"} className="ml-auto">
-                    Start
+                    <Link href={`/exams/${exam.id}`}>Start</Link>
                   </Button>
                 </CardFooter>
               </Card>
