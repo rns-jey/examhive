@@ -16,7 +16,7 @@ export default function AppHeader() {
           <div className="space-x-4">
             <SignedIn>
               <Link href="/">Home</Link>
-              <Link href="/">Exams</Link>
+              <Link href="/exams">Exams</Link>
 
               <SignOutButton />
             </SignedIn>
