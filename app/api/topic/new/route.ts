@@ -8,7 +8,6 @@ export async function POST(req: Request) {
 
     if (!profile) return new NextResponse("Unauthorized", { status: 401 });
 
-    console.log(profile);
     if (profile.role !== "ADMIN") return new NextResponse("Unauthorized", { status: 401 });
 
     const { title, description } = await req.json();
