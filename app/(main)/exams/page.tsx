@@ -1,6 +1,16 @@
 import { Button } from "@/components/atoms/button";
+import NewTopicForm from "@/components/organisms/new-topic-form";
 import Wrapper from "@/components/organisms/wrapper";
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Plus } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -84,6 +94,23 @@ export default function Exams() {
                 </CardFooter>
               </Card>
             ))}
+
+            <Dialog>
+              <DialogTrigger asChild>
+                <Card key="new-exam" className="hover:bg-accent/50 transition-colors cursor-pointer flex flex-col">
+                  <CardHeader>
+                    <CardTitle>New Exam</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex flex-col justify-center items-center">
+                    <Plus className="flex-grow h-10" />
+                  </CardContent>
+                  <CardFooter>
+                    <Button variant={"ghost"} className="ml-auto"></Button>
+                  </CardFooter>
+                </Card>
+              </DialogTrigger>
+              <NewTopicForm />
+            </Dialog>
           </div>
         </div>
       </div>
