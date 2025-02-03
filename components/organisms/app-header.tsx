@@ -1,4 +1,4 @@
-import { SignedOut, SignInButton, SignOutButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, SignOutButton } from "@clerk/nextjs";
 import { Hexagon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
@@ -14,12 +14,12 @@ export default function AppHeader() {
         </Link>
         <nav className="flex items-center ">
           <div className="space-x-4">
-            <Link href="/">Home</Link>
-            <Link href="/">Exams</Link>
+            <SignedIn>
+              <Link href="/">Home</Link>
+              <Link href="/">Exams</Link>
 
-            <SignInButton>
               <SignOutButton />
-            </SignInButton>
+            </SignedIn>
 
             <SignedOut>
               <Button asChild className="bg-amber-500 hover:bg-amber-600">
