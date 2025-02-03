@@ -5,6 +5,39 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui
 import { ArrowRight, Clock } from "lucide-react";
 import { Button } from "../atoms/button";
 
+const examsTaken = [
+  {
+    id: 1,
+    name: "Fundamentals of Artificial Intelligence",
+    description: "Covers AI concepts, applications, ethics, and machine learning basics.",
+    previous_grade: 85,
+  },
+  {
+    id: 2,
+    name: "Advanced JavaScript",
+    description: "Focuses on ES6+, performance optimization, asynchronous programming, and best practices.",
+    previous_grade: 92,
+  },
+  {
+    id: 3,
+    name: "Cryptocurrency and Blockchain",
+    description: "Explores blockchain technology, cryptocurrency security, trading, and smart contracts.",
+    previous_grade: 78,
+  },
+  {
+    id: 4,
+    name: "Portuguese Language Proficiency Test",
+    description: "Tests grammar, vocabulary, sentence structure, and conversational fluency in Portuguese.",
+    previous_grade: 88,
+  },
+  {
+    id: 5,
+    name: "AWS Cloud Certification Exam",
+    description: "Assesses knowledge in AWS compute, storage, security, and cloud architecture.",
+    previous_grade: 74,
+  },
+];
+
 export default function HomePage() {
   return (
     <Wrapper>
@@ -37,6 +70,24 @@ export default function HomePage() {
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        <div className="space-y-2">
+          <h1 className="font-bold tracking-tight text-lg md:text-xl lg:text-2xl">Exams Taken</h1>
+
+          {examsTaken.map((exam) => (
+            <Card key={exam.id} className="hover:bg-accent/50 transition-colors cursor-pointer">
+              <CardHeader>
+                <div className="flex items-center justify-between gap-2">
+                  <div className="space-y-1">
+                    <CardTitle>{exam.name}</CardTitle>
+                    <CardDescription className="flex items-center gap-2">{exam.description}</CardDescription>
+                  </div>
+                  <Button variant={"outline"}>Retake</Button>
+                </div>
+              </CardHeader>
+            </Card>
+          ))}
         </div>
       </div>
     </Wrapper>
