@@ -24,3 +24,27 @@ model Profile {
   
   createdAt DateTime @default(now())
 }
+
+model Topic {
+  id String @id @default(uuid())
+  name String @unique
+  description String @db.Text
+
+  questions Question[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Question {
+  id String @id @default(uuid())
+  question String
+  options String[]
+  correctAnswer String
+
+  topicId String
+  topic Topic @relation(fields: [topicId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
