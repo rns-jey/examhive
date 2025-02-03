@@ -21,8 +21,15 @@ model Profile {
   lastName String
   imageUrl String @db.Text
   email String @db.Text @unique
+  role MemberRole @default(USER)
   
   createdAt DateTime @default(now())
+}
+
+enum MemberRole {
+  ADMIN
+  MODERATOR
+  USER
 }
 
 model Topic {
