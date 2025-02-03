@@ -1,7 +1,7 @@
 "use client";
 
 import Wrapper from "../organisms/wrapper";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import { ArrowRight, Clock } from "lucide-react";
 import { Button } from "../atoms/button";
 
@@ -35,6 +35,26 @@ const examsTaken = [
     name: "AWS Cloud Certification Exam",
     description: "Assesses knowledge in AWS compute, storage, security, and cloud architecture.",
     previous_grade: 74,
+  },
+];
+
+const otherExams = [
+  {
+    id: 1,
+    name: "Machine Learning Fundamentals",
+    description: "Learn about supervised and unsupervised learning, neural networks, and real-world AI applications.",
+  },
+  {
+    id: 2,
+    name: "JavaScript Design Patterns",
+    description:
+      "Understand common design patterns like Singleton, Factory, and Observer to improve code scalability and maintainability.",
+  },
+  {
+    id: 3,
+    name: "Smart Contract Security in Blockchain",
+    description:
+      "Explore vulnerabilities in smart contracts, best practices for secure coding, and auditing techniques.",
   },
 ];
 
@@ -88,6 +108,29 @@ export default function HomePage() {
               </CardHeader>
             </Card>
           ))}
+        </div>
+
+        <div className="space-y-2">
+          <h1 className="font-bold tracking-tight text-lg md:text-xl lg:text-2xl">Recommended for you</h1>
+
+          <div className="flex flex-col space-x-2 md:flex-row">
+            {otherExams.map((exam) => (
+              <Card
+                key={exam.id}
+                className="hover:bg-accent/50 transition-colors cursor-pointer md:w-1/3 flex flex-col"
+              >
+                <CardHeader className="flex flex-col flex-grow">
+                  <CardTitle>{exam.name}</CardTitle>
+                  <CardDescription className="mt-auto">{exam.description}</CardDescription>
+                </CardHeader>
+                <CardFooter>
+                  <Button variant={"outline"} className="ml-auto">
+                    Start
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </Wrapper>
