@@ -1,9 +1,8 @@
-"use client";
-
 import Wrapper from "../organisms/wrapper";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import { ArrowRight, Clock } from "lucide-react";
 import { Button } from "../atoms/button";
+import currentProfile from "@/lib/current-profile";
 
 const examsTaken = [
   {
@@ -58,12 +57,14 @@ const otherExams = [
   },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const currentUser = await currentProfile();
+
   return (
     <Wrapper>
       <div className="space-y-8">
         <header className="space-y-2">
-          <h1 className="font-bold text-2xl tracking-tight md:text-3xl lg:text-4xl">{`Welcome back, Jhorene!`}</h1>
+          <h1 className="font-bold text-2xl tracking-tight md:text-3xl lg:text-4xl">{`Welcome back, ${currentUser?.firstName}!`}</h1>
           <p className="text-muted-foreground">Pick up where you left off or try something new.</p>
         </header>
 
