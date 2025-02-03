@@ -34,7 +34,7 @@ enum MemberRole {
 
 model Topic {
   id String @id @default(uuid())
-  name String @unique
+  title String @unique
   description String @db.Text
 
   questions Question[]
