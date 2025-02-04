@@ -2,14 +2,7 @@ import { Button } from "@/components/atoms/button";
 import NewTopicForm from "@/components/organisms/new-topic-form";
 import Wrapper from "@/components/organisms/wrapper";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import React from "react";
