@@ -12,7 +12,5 @@ export default async function EditTopic({ params }: EditTopicProps) {
 
   if (!profile) return (await auth()).redirectToSignIn;
 
-  const { examId } = params;
-
-  return <EditTopicPage examId={examId} />;
+  return <EditTopicPage examId={params.examId} />;
 }
