@@ -10,6 +10,10 @@ import { CheckCircle2, Timer, XCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
+interface ExamPageProps {
+  examId: string;
+}
+
 const questions = [
   {
     id: 1,
@@ -93,16 +97,14 @@ const questions = [
   },
 ];
 
-type tParams = { examId: string };
-
-export default function ExamPage(props: { params: tParams }) {
+export default function ExamPage({ examId }: ExamPageProps) {
   const router = useRouter();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [showResults, setShowResults] = useState(false);
   const [timeLeft, setTimeLeft] = useState(900); // 15 minutes in seconds
 
-  console.log(props.params.examId);
+  console.log(examId);
 
   // Timer effect would go here in a real implementation
   useEffect(() => {
