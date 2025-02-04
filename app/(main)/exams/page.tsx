@@ -53,7 +53,7 @@ const otherExams = [
     description: "Tests grammar, vocabulary, sentence structure, and conversational fluency in Portuguese.",
   },
   {
-    id: 8,
+    id: "d4530073-e1f8-45a6-bbe0-4d3a9279d22a",
     name: "AWS Cloud Certification Exam",
     description: "Assesses knowledge in AWS compute, storage, security, and cloud architecture.",
   },
