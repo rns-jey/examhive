@@ -4,9 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 import React from "react";
 
 interface EditTopicProps {
-  params: {
-    examId: string;
-  };
+  params: () => Promise<{ examId: string }>;
 }
 
 export default async function EditTopic({ params }: EditTopicProps) {
@@ -14,7 +12,7 @@ export default async function EditTopic({ params }: EditTopicProps) {
 
   if (!profile) return (await auth()).redirectToSignIn;
 
-  const { examId } = params;
+  const { examId } = await params();
 
   return <EditTopicPage examId={examId} />;
 }
