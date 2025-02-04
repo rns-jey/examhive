@@ -3,10 +3,14 @@ import currentProfile from "@/lib/current-profile";
 import { auth } from "@clerk/nextjs/server";
 import React from "react";
 
-export default async function EditTopic({ params }: { params: { examId: string } }) {
+type tParams = Promise<{ examId: string }>;
+
+export default async function EditTopic(props: { params: tParams }) {
   const profile = await currentProfile();
 
   if (!profile) return (await auth()).redirectToSignIn;
 
-  return <EditTopicPage examId={params.examId} />;
+  const { examId } = await props.params;
+
+  return <EditTopicPage examId={examId} />;
 }
