@@ -46,30 +46,18 @@ export default function ExamsPage({ exams, profile }: ExamsPageProps) {
                   <CardTitle>{exam.title}</CardTitle>
                   <CardDescription className="mt-auto">{exam.description}</CardDescription>
                 </CardHeader>
-                <CardFooter>
-                  <Button variant={"outline"} className="ml-auto">
+                <CardFooter className="flex justify-end gap-2">
+                  {profile.role === "ADMIN" && (
+                    <Button variant={"outline"}>
+                      <Link href={`/exams/${exam.id}/edit`}>Edit</Link>
+                    </Button>
+                  )}
+                  <Button variant={"outline"}>
                     <Link href={`/exams/${exam.id}`}>Start</Link>
                   </Button>
                 </CardFooter>
               </Card>
             ))}
-
-            {/* <Dialog>
-              <DialogTrigger asChild>
-                <Card key="new-exam" className="hover:bg-accent/50 transition-colors cursor-pointer flex flex-col">
-                  <CardHeader>
-                    <CardTitle>New Exam</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex flex-col justify-center items-center">
-                    <Plus className="flex-grow h-10" />
-                  </CardContent>
-                  <CardFooter>
-                    <Button variant={"ghost"} className="ml-auto"></Button>
-                  </CardFooter>
-                </Card>
-              </DialogTrigger>
-              <NewExamForm />
-            </Dialog> */}
           </div>
         </div>
       </div>
