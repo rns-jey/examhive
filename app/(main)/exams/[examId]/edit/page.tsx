@@ -17,6 +17,9 @@ export default async function EditExam(props: { params: tParams }) {
     where: {
       id: examId,
     },
+    include: {
+      questions: true,
+    },
   });
 
   if (!exam) return <div>Loading...</div>;
