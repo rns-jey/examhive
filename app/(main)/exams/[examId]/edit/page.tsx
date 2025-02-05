@@ -2,7 +2,6 @@ import EditExamPage from "@/components/pages/edit-exam-page";
 import currentProfile from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
-import axios from "axios";
 import React from "react";
 
 type tParams = Promise<{ examId: string }>;
