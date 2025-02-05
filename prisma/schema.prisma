@@ -46,7 +46,7 @@ model Exam {
 model Question {
   id String @id @default(uuid())
   question String
-  options String[]
+  choices String[]
   correctAnswer String
 
   examId String

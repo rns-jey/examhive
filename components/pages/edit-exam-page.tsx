@@ -5,6 +5,7 @@ import Wrapper from "../organisms/wrapper";
 import { Card, CardContent, CardHeader } from "../ui/card";
 import { Separator } from "../ui/separator";
 import { Button } from "../atoms/button";
+import { useModal } from "@/hooks/use-modal-store";
 
 interface EditExamPageProps {
   exam: Exam;
@@ -94,6 +95,8 @@ const questions = [
 ];
 
 export default function EditExamPage({ exam }: EditExamPageProps) {
+  const { onOpen } = useModal();
+
   return (
     <Wrapper>
       <div className="space-y-8">
@@ -102,7 +105,8 @@ export default function EditExamPage({ exam }: EditExamPageProps) {
             <h1 className="font-bold text-2xl tracking-tight md:text-3xl lg:text-4xl">{exam.title}</h1>
             <p className="text-muted-foreground">{exam.description}</p>
           </div>
-          <Button>New Question</Button>
+
+          <Button onClick={() => onOpen("createQuestion", { exam })}>New Question</Button>
         </header>
 
         <div className="m-auto space-y-4 max-w-5xl">
