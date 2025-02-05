@@ -14,9 +14,13 @@ export default async function EditExam(props: { params: tParams }) {
 
   const { examId } = await props.params;
 
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-  console.log(`${baseUrl}/api/exam/${examId}`);
-  const exam = await axios.get(`${baseUrl}/api/exam/${examId}`);
+  const exam = await db.exam.findUnique({
+    where: {
+      id: examId,
+    },
+  });
 
-  return <EditExamPage examId={examId} />;
+  if (!exam) return <div>Loading...</div>;
+
+  return <EditExamPage exam={exam} />;
 }
