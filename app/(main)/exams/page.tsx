@@ -1,5 +1,5 @@
 import { Button } from "@/components/atoms/button";
-import NewTopicForm from "@/components/organisms/new-topic-form";
+import NewExamForm from "@/components/organisms/new-exam-form";
 import Wrapper from "@/components/organisms/wrapper";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
@@ -102,7 +102,7 @@ export default function Exams() {
                   </CardFooter>
                 </Card>
               </DialogTrigger>
-              <NewTopicForm />
+              <NewExamForm />
             </Dialog>
           </div>
         </div>

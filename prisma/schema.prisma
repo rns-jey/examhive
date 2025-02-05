@@ -32,7 +32,7 @@ enum MemberRole {
   USER
 }
 
-model Topic {
+model Exam {
   id String @id @default(uuid())
   title String @unique
   description String @db.Text
@@ -49,8 +49,8 @@ model Question {
   options String[]
   correctAnswer String
 
-  topicId String
-  topic Topic @relation(fields: [topicId], references: [id])
+  examId String
+  exam Exam @relation(fields: [examId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

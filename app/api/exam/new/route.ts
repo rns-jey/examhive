@@ -12,14 +12,14 @@ export async function POST(req: Request) {
 
     const { title, description } = await req.json();
 
-    const topic = await db.topic.create({
+    const exam = await db.exam.create({
       data: {
         title,
         description,
       },
     });
 
-    return NextResponse.json(topic);
+    return NextResponse.json(exam);
   } catch (error) {
     console.log(error);
     return new NextResponse("Internal Server Error", { status: 500 });

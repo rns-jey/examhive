@@ -12,13 +12,13 @@ export async function GET(req: Request, props: { params: tParams }) {
 
     const { examId } = await props.params;
 
-    const topic = await db.topic.findUnique({
+    const exam = await db.exam.findUnique({
       where: {
         id: examId,
       },
     });
 
-    return NextResponse.json(topic);
+    return NextResponse.json(exam);
   } catch (error) {
     console.log(error);
     return new NextResponse("Internal Server Error", { status: 500 });

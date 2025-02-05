@@ -19,7 +19,7 @@ const formSchema = z.object({
   description: z.string().min(2).max(255),
 });
 
-export default function NewTopicForm() {
+export default function NewExamForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
