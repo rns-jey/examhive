@@ -1,3 +1,4 @@
+import EditExamPage from "@/components/pages/edit-exam-page";
 import currentProfile from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
@@ -13,7 +14,9 @@ export default async function EditExam(props: { params: tParams }) {
 
   const { examId } = await props.params;
 
-  const exam = await axios.get("/api/exam");
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  console.log(`${baseUrl}/api/exam/${examId}`);
+  const exam = await axios.get(`${baseUrl}/api/exam/${examId}`);
 
   return <EditExamPage examId={examId} />;
 }

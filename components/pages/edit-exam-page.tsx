@@ -1,12 +1,12 @@
 "use client";
 
-interface EditTopicPageProps {
+interface EditExamPageProps {
   examId: string;
 }
 
-export default function EditExamPage({ examId }: EditTopicPageProps) {
+export default function EditExamPage({ examId }: EditExamPageProps) {
   const exam = async () => {
-    const response = await fetch(`/api/topic/${examId}`);
+    const response = await fetch(`/api/exam/${examId}`);
     const data = await response.json();
 
     return data;

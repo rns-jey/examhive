@@ -33,14 +33,14 @@ export default function NewExamForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const topic = await axios.post("/api/topic/new", values);
+      const exam = await axios.post("/api/exam/new", values);
 
       toast({
-        description: `Successfully added new topic!`,
+        description: `Successfully added new exam!`,
       });
 
       form.reset();
-      router.push(`/exams/edit/${topic.data.id}`);
+      router.push(`/exams/edit/${exam.data.id}`);
     } catch (error) {
       console.error(error);
     }
@@ -49,7 +49,7 @@ export default function NewExamForm() {
   return (
     <DialogContent>
       <DialogHeader>
-        <DialogTitle>Create New Topic</DialogTitle>
+        <DialogTitle>Create New Exam</DialogTitle>
       </DialogHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
