@@ -41,7 +41,7 @@ export default function ExamsPage({ exams, profile }: ExamsPageProps) {
 
           <div className="grid grid-cols-none gap-4 md:grid-cols-2 lg:grid-cols-3">
             {exams.map((exam) => (
-              <Card key={exam.id} className="hover:bg-accent/50 transition-colors cursor-pointer flex flex-col">
+              <Card key={exam.id} className="flex flex-col">
                 <CardHeader className="flex flex-col flex-grow">
                   <CardTitle>{exam.title}</CardTitle>
                   <CardDescription className="mt-auto">{exam.description}</CardDescription>
