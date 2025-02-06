@@ -1,11 +1,13 @@
+import { ExamWithQuestions } from "@/types";
 import { Exam } from "@prisma/client";
 import { create } from "zustand";
 
 interface ModalData {
   exam?: Exam;
+  fullExam?: ExamWithQuestions;
 }
 
-export type ModalType = "createExam" | "createQuestion";
+export type ModalType = "createExam" | "createQuestion" | "publishExam";
 
 interface ModalStore {
   type: ModalType | null;

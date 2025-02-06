@@ -36,6 +36,7 @@ model Exam {
   id String @id @default(uuid())
   title String @unique
   description String @db.Text
+  isPublished Boolean @default(false)
 
   questions Question[]
 

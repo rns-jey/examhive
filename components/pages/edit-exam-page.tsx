@@ -7,15 +7,33 @@ import { Button } from "../atoms/button";
 import { useModal } from "@/hooks/use-modal-store";
 import { ExamWithQuestions } from "@/types";
 import { Badge } from "../ui/badge";
+import axios from "axios";
+import { useToast } from "@/hooks/use-toast";
 
 interface EditExamPageProps {
   exam: ExamWithQuestions;
 }
 
+const fullList = [];
+
 export default function EditExamPage({ exam }: EditExamPageProps) {
   const { onOpen } = useModal();
 
   const questions = exam.questions;
+
+  const { toast } = useToast();
+
+  // async function bulkCreate() {
+  //   try {
+  //     await axios.post(`/api/questions/bulk`, { questions: fullList, examId: exam?.id });
+
+  //     toast({
+  //       description: `Successfully added new questions!`,
+  //     });
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
   return (
     <Wrapper>
@@ -26,7 +44,16 @@ export default function EditExamPage({ exam }: EditExamPageProps) {
             <p className="text-muted-foreground">{exam.description}</p>
           </div>
 
-          <Button onClick={() => onOpen("createQuestion", { exam })}>New Question</Button>
+          <div className="space-x-2">
+            {!exam.isPublished && (
+              <Button disabled={!(questions.length > 0)} onClick={() => onOpen("publishExam", { exam })}>
+                Publish
+              </Button>
+            )}
+
+            <Button onClick={() => onOpen("createQuestion", { exam })}>New Question</Button>
+            {/* <Button onClick={() => bulkCreate()}>Bulk</Button> */}
+          </div>
         </header>
 
         <div className="m-auto space-y-4 max-w-5xl">

@@ -9,7 +9,19 @@ export default async function Exams() {
 
   if (!profile) return (await auth()).redirectToSignIn;
 
-  const exams = await db.exam.findMany();
+  let exams;
+
+  if (profile.role === "ADMIN") {
+    const adminExam = await db.exam.findMany({
+      where: {
+        isPublished: true,
+      },
+    });
+
+    exams = adminExam;
+  }
+
+  exams = await db.exam.findMany();
 
   return <ExamsPage exams={exams} profile={profile} />;
 }
