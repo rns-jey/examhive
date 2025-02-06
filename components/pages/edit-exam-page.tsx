@@ -7,21 +7,21 @@ import { Button } from "../atoms/button";
 import { useModal } from "@/hooks/use-modal-store";
 import { ExamWithQuestions } from "@/types";
 import { Badge } from "../ui/badge";
-import axios from "axios";
-import { useToast } from "@/hooks/use-toast";
+// import axios from "axios";
+// import { useToast } from "@/hooks/use-toast";
 
 interface EditExamPageProps {
   exam: ExamWithQuestions;
 }
 
-const fullList = [];
+// const fullList = [];
 
 export default function EditExamPage({ exam }: EditExamPageProps) {
   const { onOpen } = useModal();
 
   const questions = exam.questions;
 
-  const { toast } = useToast();
+  // const { toast } = useToast();
 
   // async function bulkCreate() {
   //   try {
