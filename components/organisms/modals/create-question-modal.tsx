@@ -129,7 +129,7 @@ export default function CreateQuestionModal() {
                       {[0, 1, 2, 3].map((index) => (
                         <FormItem key={index} className="flex items-center space-x-3 space-y-0">
                           <FormControl>
-                            <RadioGroupItem value={`${form.watch(`choices.${index}`).toLowerCase()}`} />
+                            <RadioGroupItem value={`${form.watch(`choices.${index}`)}`} />
                           </FormControl>
                           <FormLabel className="font-normal">{form.watch(`choices.${index}`)}</FormLabel>
                         </FormItem>
