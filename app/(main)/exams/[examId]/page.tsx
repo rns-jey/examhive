@@ -2,6 +2,7 @@ import ExamPage from "@/components/pages/exam-page";
 import currentProfile from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
+import { Question } from "@prisma/client";
 import React from "react";
 
 type tParams = Promise<{ examId: string }>;
@@ -49,5 +50,17 @@ export default async function Exam(props: { params: tParams }) {
     );
   }
 
-  return <ExamPage questions={exam.questions} />;
+  const shuffleQuestions = (questions: Question[]) => {
+    let shuffled = [...questions]; // Copy the original array to avoid mutation
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1)); // Pick a random index
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // Swap elements
+    }
+    
+    return shuffled;
+  };
+
+  console.log(shuffleQuestions(exam.questions))
+
+  return <ExamPage questions={shuffleQuestions(exam.questions)} />;
 }
