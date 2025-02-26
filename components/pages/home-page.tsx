@@ -84,10 +84,12 @@ export default async function HomePage() {
                   <p className="text-sm font-medium">Previous Score: 75%</p>
                   <p className="text-sm text-muted-foreground">5 questions remaining</p>
                 </div>
-                <Button>
-                  Continue
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                <a href="/exams/aef8fbb9-0fed-4788-8c17-6b7c8679ba68">
+                  <Button asChild>
+                    Continue
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
               </div>
             </CardContent>
           </Card>
