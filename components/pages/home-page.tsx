@@ -72,7 +72,7 @@ export default async function HomePage() {
           <h1 className="font-bold tracking-tight text-lg md:text-xl lg:text-2xl">Continue Learning</h1>
           <Card className="hover:bg-accent/50 transition-colors cursor-pointer">
             <CardHeader>
-              <CardTitle>Introduction to JavaScript</CardTitle>
+              <CardTitle>AWS Cloud Practitioner Essentials</CardTitle>
               <CardDescription className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />
                 Last attempted 2 days ago
@@ -82,7 +82,7 @@ export default async function HomePage() {
               <div className="flex items-center justify-between">
                 <div className="space-y-1">
                   <p className="text-sm font-medium">Previous Score: 75%</p>
-                  <p className="text-sm text-muted-foreground">30 questions remaining</p>
+                  <p className="text-sm text-muted-foreground">5 questions remaining</p>
                 </div>
                 <Button>
                   Continue
